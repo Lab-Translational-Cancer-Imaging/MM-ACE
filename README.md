@@ -26,14 +26,17 @@ data_directory
 ```
 
 ## Guided manual evaluation
+
 In the directory with all the segmentations, there is a tmp directory. Here you will find two .csv files. The first one, corrected.csv, keeps track of segmentations that are automatically corrected. The second file, uncertainty.csv, contains the uncertain locations or scans that require a check. The file includes a couple of columns that you might need to edit after reviewing the images:
 
+```bash
 file = segmentation file
 locations = check if the vertebra after this vertebra id is segmented
 score = how uncertain the model is about this location (we checked the scans if > 14)
 review = put 1 if there is indeed a missed vertebra and 0 if not
 manual_correction = is 1 if a missing section is detected and needs to be manually corrected
 manually_corrected = put 1 after you have done the manual corrections
+```
 
 After the scans are reviewed and corrected you can run the review in singularity with: 
    `python start_cv.py --data_dir '[path data_directory]' --pipeline 'all' --review 'True' "$@"`
