@@ -39,6 +39,7 @@ manually_corrected = put 1 after you have done the manual corrections
 ```
 
 After the scans are reviewed and corrected you can run the review in singularity with: 
+
    `python start_cv.py --data_dir '[path data_directory]' --pipeline 'all' --review 'True' "$@"`
 
 ## Manual corrections
